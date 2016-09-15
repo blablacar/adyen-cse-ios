@@ -53,7 +53,7 @@
     dispatch_once(&once, ^{
         instance = [[NSDateFormatter alloc] init];
         instance.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        instance.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        instance.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         instance.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
         instance.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
     });
