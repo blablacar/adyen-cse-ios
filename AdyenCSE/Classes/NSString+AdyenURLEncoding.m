@@ -11,11 +11,14 @@
 @implementation NSString (AdyenURLEncoding)
 
 -(NSString *)urlEncodeUsingEncoding:(NSStringEncoding)encoding {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
                                                                                  (CFStringRef)self,
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
                                                                                  CFStringConvertNSStringEncodingToEncoding(encoding)));
+#pragma GCC diagnostic pop
 }
 
 @end
