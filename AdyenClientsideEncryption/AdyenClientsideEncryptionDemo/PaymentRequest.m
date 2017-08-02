@@ -45,7 +45,10 @@
     [req setValue:[self authHeaderWithUsername:username password:password] forHTTPHeaderField:@"Authorization"];
     req.HTTPBody = [[form encodeFormData] dataUsingEncoding:NSUTF8StringEncoding];
     self.buffer = [NSMutableData data];
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     [NSURLConnection connectionWithRequest:req delegate:self];
+#pragma GCC diagnostic pop
 }
 
 - (NSString*)authHeaderWithUsername:(NSString*)username password:(NSString*)password {
